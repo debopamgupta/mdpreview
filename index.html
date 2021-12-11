@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css"
+      integrity="sha512-zb2pp+R+czM7GAemdSUQt6jFmr3qCo6ikvBgVU6F5GvwEDR0C2sefFiPEJ9QUpmAKdD5EqDUdNRtbOYnbF/eyQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>MD Preview</title>
   </head>
   <body>
     <div class="header center">
       <h1>MD PREVIEW</h1>
-      <h4>A Markdown Previewer / Editor</h4>
     </div>
     <main class="editarea">
       <div id="pr-ed">
         <div id="editor">
-          <textarea id="editor-textarea"></textarea>
+          <textarea id="editor-textarea" oninput="getTextInput()"></textarea>
         </div>
-        <div id="preview">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati,
-          nihil. Illo cupiditate architecto reiciendis non eaque maiores, animi
-          in nulla cumque alias veritatis deserunt ratione asperiores eligendi,
-          velit, sunt saepe.
-        </div>
+        <div id="preview" class="markdown-body"></div>
       </div>
     </main>
     <div class="footer center">
