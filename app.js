@@ -27,8 +27,9 @@ textAreaInput.addEventListener("input", getTextInput);
 
 // get last stored markdown else show default message
 textAreaInput.defaultValue =
-  localStorage.getItem("markdown") ||
-  "# MD Preview\n \n## Hello World\n \nThis is a markdown previewer.\nCopy your markdown with the top right copy button.\n <!-- Paste/Type your markdown here -->";
+  localStorage.getItem("markdown") !== null
+    ? localStorage.getItem("markdown")
+    : "# MD Preview\n \n## Hello World\n \nThis is a markdown previewer.\nCopy your markdown with the top right copy button.\n <!-- Paste/Type your markdown here -->";
 parseAndDisplay(textAreaInput.defaultValue);
 
 copyButton.addEventListener("click", function () {
