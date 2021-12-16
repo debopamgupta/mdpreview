@@ -11,14 +11,21 @@ function sanitizeInput(text) {
   clean = DOMPurify.sanitize(text);
 
   parseAndDisplay(clean);
+  store(clean);
 }
 
 function parseAndDisplay(text) {
   previewWindow.innerHTML = marked.parse(text);
 }
 
+function store(text) {
+  localStorage.setItem("markdown", text);
+}
+
 textAreaInput.addEventListener("input", getTextInput);
 
+// get last stored markdown else show default message
 textAreaInput.defaultValue =
+  localStorage.getItem("markdown") ||
   "# MD Preview\n \n## Hello World\n \nThis is a markdown previewer.\n <!-- Paste/Type your markdown here -->";
 parseAndDisplay(textAreaInput.defaultValue);
